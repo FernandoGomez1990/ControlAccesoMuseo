@@ -66,7 +66,6 @@ public class ControlAccesoMuseoCompensar {
                 //Encabezados de la tabla
                 salida.printf("%-20s %-15s %-8s %-18s %-15s%n",
                         "Nombre", "Identidad", "Edad", "Categoría", "Valor a pagar");
-
                 salida.println("-----------------------------------------------------------------------");
 
                 //Recorremos los visitantes registrados
@@ -80,12 +79,11 @@ public class ControlAccesoMuseoCompensar {
                         valoresAPagar[i]);
                     
                     //Acumulamos el valor de cada visitante
-                    valorTotal += valoresAPagar[i];
-                    
+                    valorTotal += valoresAPagar[i];                    
                     //Mostramos el valor total
-                    salida.println("------------------------------");  
-                    salida.printf("VALOR TOTAL A PAGAR: $%.2f%n", valorTotal);
+                    salida.println("------------------------------");                      
                 }                        
+                salida.printf("VALOR TOTAL A PAGAR: $%.2f%n", valorTotal);
             salida.close();
 
             } catch (IOException e) {
@@ -93,7 +91,15 @@ public class ControlAccesoMuseoCompensar {
                 null,"Error al guardar el archivo.");
                     
              }
-        }
+                        JOptionPane.showMessageDialog(
+                    null, "La información se ha exportado exitosamente.", 
+                    "Confirmación exportación ", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else {
+                    JOptionPane.showMessageDialog(
+                    null, "Usted ha cancelado la exportación del archivo.",
+                            "Exportación cancelada ",                      
+                    JOptionPane.INFORMATION_MESSAGE);
+           }
     }
 }
-
